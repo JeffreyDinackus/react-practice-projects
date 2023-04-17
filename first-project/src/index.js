@@ -1,31 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './css/index.css';
 
-function Greeting() {
+function BookList() {
   return (
-    <>
-      <div className='test'>
-        <h1>XD</h1>
-        <ul>
-          <li>
-            <a href='https://facebook.com'>facebook.com</a>
-          </li>
-        </ul>
-      </div>
-      <h2>Ahoy!</h2>
-    </>
+    <section className='bookList'>
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+    </section>
   );
 }
-// function Greeting() {
-//   return React.createElement(
-//     'div',
-//     {},
-//     React.createElement('h1', {}, 'hello world')
-//   );
-// }
 
-export default Greeting;
+const Book = () => {
+  return (
+    <article className='book'>
+      <Image />
+      <Title />
+      <Author />
+      {/* <Review /> */}
+    </article>
+  );
+};
+const Image = () => (
+  <img
+    src='https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL600_SR600,400_.jpg'
+    alt=''
+  />
+);
+
+const Title = () => <h2>Atomic Habits</h2>;
+const Author = () => {
+  return <h2>James Clear</h2>;
+};
+// const Review = () => <h2>Review placeholder</h2>;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(<Greeting />);
+root.render(<BookList />);
